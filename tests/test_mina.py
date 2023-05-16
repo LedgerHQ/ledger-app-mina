@@ -21,6 +21,26 @@ def get_nano_review_instructions(num_screen_skip):
     return instructions
 
 
+def get_stax_address_instructions():
+    instructions = [NavIns(NavInsID.USE_CASE_CHOICE_CONFIRM)]
+    instructions.append(NavIns(NavInsID.TOUCH, (200, 335)))
+    instructions.append(NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_EXIT_QR))
+    instructions.append(NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_TAP))
+    instructions.append(NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_CONFIRM))
+    instructions.append(NavIns(NavInsID.USE_CASE_STATUS_DISMISS))
+    return instructions
+
+
+def get_stax_review_instructions():
+    instructions = [NavIns(NavInsID.USE_CASE_CHOICE_CONFIRM)]
+    instructions.append(NavIns(NavInsID.USE_CASE_REVIEW_TAP))
+    instructions.append(NavIns(NavInsID.USE_CASE_REVIEW_TAP))
+    instructions.append(NavIns(NavInsID.USE_CASE_REVIEW_TAP))
+    instructions.append(NavIns(NavInsID.USE_CASE_REVIEW_CONFIRM))
+    instructions.append(NavIns(NavInsID.USE_CASE_STATUS_DISMISS))
+    return instructions
+
+
 def test_get_address_0(test_name, backend, firmware, navigator):
     # Address generation tests
     #
@@ -38,14 +58,7 @@ def test_get_address_0(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(2)
         instructions += get_nano_review_instructions(2)
     else:
-        instructions = [
-            NavIns(NavInsID.USE_CASE_CHOICE_CONFIRM),
-            NavIns(NavInsID.TOUCH, (200, 335)),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_EXIT_QR),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_TAP),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_CONFIRM),
-            NavIns(NavInsID.USE_CASE_STATUS_DISMISS)
-        ]
+        instructions = get_stax_address_instructions()
 
     # account 0
     # private key 164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718
@@ -67,14 +80,8 @@ def test_get_address_1(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(2)
         instructions += get_nano_review_instructions(2)
     else:
-        instructions = [
-            NavIns(NavInsID.USE_CASE_CHOICE_CONFIRM),
-            NavIns(NavInsID.TOUCH, (200, 335)),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_EXIT_QR),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_TAP),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_CONFIRM),
-            NavIns(NavInsID.USE_CASE_STATUS_DISMISS)
-        ]
+        instructions = get_stax_address_instructions()
+
     # account 1
     # private key 3ca187a58f09da346844964310c7e0dd948a9105702b716f4d732e042e0c172e
     with minaClient.get_address_async(1):
@@ -96,14 +103,7 @@ def test_get_address_2(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(2)
         instructions += get_nano_review_instructions(2)
     else:
-        instructions = [
-            NavIns(NavInsID.USE_CASE_CHOICE_CONFIRM),
-            NavIns(NavInsID.TOUCH, (200, 335)),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_EXIT_QR),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_TAP),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_CONFIRM),
-            NavIns(NavInsID.USE_CASE_STATUS_DISMISS)
-        ]
+        instructions = get_stax_address_instructions()
 
     # account 2
     # private key 336eb4a19b3d8905824b0f2254fb495573be302c17582748bf7e101965aa4774
@@ -126,14 +126,7 @@ def test_get_address_3(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(2)
         instructions += get_nano_review_instructions(2)
     else:
-        instructions = [
-            NavIns(NavInsID.USE_CASE_CHOICE_CONFIRM),
-            NavIns(NavInsID.TOUCH, (200, 335)),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_EXIT_QR),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_TAP),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_CONFIRM),
-            NavIns(NavInsID.USE_CASE_STATUS_DISMISS)
-        ]
+        instructions = get_stax_address_instructions()
 
     # account 3
     # private key 1dee867358d4000f1dafa5978341fb515f89eeddbe450bd57df091f1e63d4444
@@ -155,14 +148,7 @@ def test_get_address_49370(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(2)
         instructions += get_nano_review_instructions(2)
     else:
-        instructions = [
-            NavIns(NavInsID.USE_CASE_CHOICE_CONFIRM),
-            NavIns(NavInsID.TOUCH, (200, 335)),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_EXIT_QR),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_TAP),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_CONFIRM),
-            NavIns(NavInsID.USE_CASE_STATUS_DISMISS)
-        ]
+        instructions = get_stax_address_instructions()
 
     # account 49370
     # private key 20f84123a26e58dd32b0ea3c80381f35cd01bc22a20346cc65b0a67ae48532ba
@@ -185,14 +171,7 @@ def test_get_address_x312a(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(2)
         instructions += get_nano_review_instructions(2)
     else:
-        instructions = [
-            NavIns(NavInsID.USE_CASE_CHOICE_CONFIRM),
-            NavIns(NavInsID.TOUCH, (200, 335)),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_EXIT_QR),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_TAP),
-            NavIns(NavInsID.USE_CASE_ADDRESS_CONFIRMATION_CONFIRM),
-            NavIns(NavInsID.USE_CASE_STATUS_DISMISS)
-        ]
+        instructions = get_stax_address_instructions()
 
     # account 0x312a
     # private key 3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779
@@ -220,14 +199,7 @@ def test_sign_tx_0(test_name, backend, firmware, navigator):
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(13)
     else:
-        instructions = [
-            NavIns(NavInsID.USE_CASE_CHOICE_CONFIRM),
-            NavIns(NavInsID.USE_CASE_REVIEW_TAP),
-            NavIns(NavInsID.USE_CASE_REVIEW_TAP),
-            NavIns(NavInsID.USE_CASE_REVIEW_TAP),
-            NavIns(NavInsID.USE_CASE_REVIEW_CONFIRM),
-            NavIns(NavInsID.USE_CASE_STATUS_DISMISS)
-        ]
+        instructions = get_stax_review_instructions()
 
     # account 0
     # private key 164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718
@@ -257,6 +229,9 @@ def test_sign_tx_12586(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(15)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(11)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 12586
     # private key 3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779
@@ -285,6 +260,9 @@ def test_sign_tx_12586_1(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(17)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(12)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 12586
     # private key 3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779
@@ -314,6 +292,9 @@ def test_sign_tx_3(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(16)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(12)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 3
     # private key 1dee867358d4000f1dafa5978341fb515f89eeddbe450bd57df091f1e63d4444
@@ -343,6 +324,9 @@ def test_sign_tx_0_1(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(15)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(11)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 0
     # private key 164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718
@@ -372,6 +356,9 @@ def test_sign_tx_49370(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(13)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(9)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 49370
     # private key 20f84123a26e58dd32b0ea3c80381f35cd01bc22a20346cc65b0a67ae48532ba
@@ -400,6 +387,9 @@ def test_sign_tx_12586_2(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(15)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(10)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 12586
     # private key 3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779
@@ -428,6 +418,9 @@ def test_sign_tx_2(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(14)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(10)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 2
     # private key 336eb4a19b3d8905824b0f2254fb495573be302c17582748bf7e101965aa4774
@@ -456,6 +449,9 @@ def test_sign_tx_0_2(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(16)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(12)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 0
     # private key 164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718
@@ -484,6 +480,9 @@ def test_sign_tx_12586_3(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(14)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(10)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 12586
     # private key 3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779
@@ -512,6 +511,9 @@ def test_sign_tx_12586_4(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(16)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(11)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 12586
     # private key 3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779
@@ -540,6 +542,9 @@ def test_sign_tx_3_1(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(15)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(11)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 3
     # private key 1dee867358d4000f1dafa5978341fb515f89eeddbe450bd57df091f1e63d4444
@@ -568,6 +573,9 @@ def test_sign_tx_0_3(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(14)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(10)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 0
     # private key 164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718
@@ -596,6 +604,9 @@ def test_sign_tx_49370_1(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(12)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(8)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 49370
     # private key 20f84123a26e58dd32b0ea3c80381f35cd01bc22a20346cc65b0a67ae48532ba
@@ -624,6 +635,9 @@ def test_sign_tx_12586_5(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(14)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(9)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 12586
     # private key 3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779
@@ -652,6 +666,9 @@ def test_sign_tx_2_1(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(13)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(9)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     # account 2
     # private key 336eb4a19b3d8905824b0f2254fb495573be302c17582748bf7e101965aa4774
@@ -680,6 +697,9 @@ def test_sign_tx_0_4(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(16)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(12)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     name = test_name + "_mainet"
 
@@ -702,6 +722,9 @@ def test_sign_tx_0_4(test_name, backend, firmware, navigator):
         instructions = get_nano_review_instructions(17)
     elif firmware.device.startswith("nano"):
         instructions = get_nano_review_instructions(13)
+    else:
+        instructions = get_stax_review_instructions()
+
 
     name = test_name + "_testnet"
 
