@@ -175,9 +175,9 @@ char *amount_to_string(char *buf, const size_t len, uint64_t amount)
 {
     // COIN = 1.000 000 000;
     size_t mantissa_len = 1;
-    for (uint64_t value = amount, len = 9; value && len > 0; value /= 10, len--) {
+    for (uint64_t value = amount, _len = 9; value && _len > 0; value /= 10, _len--) {
         if (value % 10 != 0) {
-            mantissa_len = len;
+            mantissa_len = _len;
             break;
         }
     }
@@ -270,7 +270,7 @@ void read_public_key_compressed(Compressed *out, const char *address)
         return;
     }
 
-    uint8_t bytes[40];
+    uint8_t bytes[40]= {0};
     size_t bytes_len = 40;
     b58_decode(bytes, &bytes_len, address, MINA_ADDRESS_LEN - 1);
 

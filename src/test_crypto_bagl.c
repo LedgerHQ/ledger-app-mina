@@ -1,6 +1,7 @@
 #ifdef HAVE_BAGL
 #include "globals.h"
 #include "curve_checks.h"
+#include "test_crypto.h"
 
 UX_STEP_NOCB_INIT(
     ux_test_crypto_done_flow_step,

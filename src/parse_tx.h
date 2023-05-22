@@ -11,7 +11,7 @@ typedef struct {
 
     // Transaction related
     Transaction tx;
-    Field       input_fields[3];
+    Field       input_fields[INPUT_FIELD_CNT];
     uint8_t     input_bits[TX_BITSTRINGS_BYTES];
     uint8_t     tag;
 } tx_t;

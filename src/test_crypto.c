@@ -1,5 +1,7 @@
 #include "globals.h"
 #include "curve_checks.h"
+#include "test_crypto.h"
+#include "menu.h"
 
 uint8_t set_result_test_crypto(void)
 {
