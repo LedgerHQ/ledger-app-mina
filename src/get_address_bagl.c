@@ -110,22 +110,6 @@ static void gen_address(void)
         &ux_get_address_result_flow_reject_step
     );
 
-    UX_STEP_TIMEOUT(
-        ux_get_address_comfort_flow_processing_step,
-        pb,
-        1,
-        ux_get_address_result_flow,
-        {
-            &C_icon_processing,
-            "Processing...",
-        }
-    );
-
-    UX_FLOW(
-        ux_get_address_comfort_flow,
-        &ux_get_address_comfort_flow_processing_step
-    );
-
     UX_STEP_NOCB(
         ux_get_address_flow_topic_step,
         pnn,
@@ -148,7 +132,7 @@ static void gen_address(void)
     UX_STEP_VALID(
         ux_get_address_flow_generate_step,
         pb,
-        ux_flow_init(0, ux_get_address_comfort_flow, NULL);,
+        ux_flow_init(0, ux_get_address_result_flow, NULL);,
         {
             &C_icon_validate_14,
             "Generate"

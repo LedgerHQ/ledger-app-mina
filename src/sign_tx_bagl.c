@@ -94,21 +94,6 @@ UX_FLOW(
         &ux_sign_tx_flow_unit_tests_step
     );
 #else
-    UX_STEP_TIMEOUT(
-        ux_sign_tx_comfort_flow_signing_step,
-        pb,
-        1,
-        ux_sign_tx_done_flow,
-        {
-            &C_icon_processing,
-            "Signing..."
-        }
-    );
-
-    UX_FLOW(
-        ux_sign_tx_comfort_flow,
-        &ux_sign_tx_comfort_flow_signing_step
-    );
 
     UX_STEP_NOCB(
         ux_sign_tx_flow_topic_step,
@@ -213,7 +198,7 @@ UX_FLOW(
     UX_STEP_VALID(
         ux_sign_tx_flow_approve_step,
         pb,
-        ux_flow_init(0, ux_sign_tx_comfort_flow, NULL);,
+        ux_flow_init(0, ux_sign_tx_done_flow, NULL);,
         {
             &C_icon_validate_14,
             "Approve"
