@@ -71,8 +71,7 @@ def test_get_address_0(test_name, backend, firmware, navigator):
     # private key 164244176fddb5d769b7de2027469d027ad428fadcc0c02396e6280142efb718
     with minaClient.get_address_async(0):
         if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Get");
-            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth)
+            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth, screen_change_after_last_instruction=False)
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.decode(
@@ -96,8 +95,7 @@ def test_get_address_1(test_name, backend, firmware, navigator):
     # private key 3ca187a58f09da346844964310c7e0dd948a9105702b716f4d732e042e0c172e
     with minaClient.get_address_async(1):
         if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Get");
-            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth)
+            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth, screen_change_after_last_instruction=False)
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.decode(
@@ -122,8 +120,7 @@ def test_get_address_2(test_name, backend, firmware, navigator):
     # private key 336eb4a19b3d8905824b0f2254fb495573be302c17582748bf7e101965aa4774
     with minaClient.get_address_async(1):
         if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Get");
-            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth)
+            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth, screen_change_after_last_instruction=False)
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.decode(
@@ -148,8 +145,7 @@ def test_get_address_3(test_name, backend, firmware, navigator):
     # private key 1dee867358d4000f1dafa5978341fb515f89eeddbe450bd57df091f1e63d4444
     with minaClient.get_address_async(3):
         if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Get");
-            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth)
+            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth, screen_change_after_last_instruction=False)
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.decode(
@@ -173,8 +169,7 @@ def test_get_address_49370(test_name, backend, firmware, navigator):
     # private key 20f84123a26e58dd32b0ea3c80381f35cd01bc22a20346cc65b0a67ae48532ba
     with minaClient.get_address_async(49370):
         if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Get");
-            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth)
+            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth, screen_change_after_last_instruction=False)
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.decode(
@@ -199,8 +194,7 @@ def test_get_address_x312a(test_name, backend, firmware, navigator):
     # private key 3414fc16e86e6ac272fda03cf8dcb4d7d47af91b4b726494dab43bf773ce1779
     with minaClient.get_address_async(0x312a):
         if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Get");
-            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth)
+            navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name + "_preauth", instructions_preauth, screen_change_after_last_instruction=False)
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.decode(
@@ -239,8 +233,6 @@ def test_sign_tx_0(test_name, backend, firmware, navigator):
                    271828,
                    "Hello Mina!",
                    mina.TESTNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.hex()
@@ -273,8 +265,6 @@ def test_sign_tx_12586(test_name, backend, firmware, navigator):
                    4294967295,
                    "",
                    mina.TESTNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.hex()
@@ -306,8 +296,6 @@ def test_sign_tx_12586_1(test_name, backend, firmware, navigator):
                    4294967295,
                    "01234567890123456789012345678901",
                    mina.TESTNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.hex()
@@ -340,8 +328,6 @@ def test_sign_tx_3(test_name, backend, firmware, navigator):
                    1982,
                    "",
                    mina.TESTNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes = backend.last_async_response.data.hex()
@@ -374,8 +360,6 @@ def test_sign_tx_0_1(test_name, backend, firmware, navigator):
                    1337,
                    "Delewho?",
                    mina.TESTNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -408,8 +392,6 @@ def test_sign_tx_49370(test_name, backend, firmware, navigator):
                    4294967295,
                    "",
                    mina.TESTNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -441,8 +423,6 @@ def test_sign_tx_12586_2(test_name, backend, firmware, navigator):
                    4294967295,
                    "more delegates, more fun........",
                    mina.TESTNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -474,8 +454,6 @@ def test_sign_tx_2(test_name, backend, firmware, navigator):
                    577216,
                    "",
                    mina.TESTNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -507,8 +485,6 @@ def test_sign_tx_0_2(test_name, backend, firmware, navigator):
                    271828,
                    "Hello Mina!",
                    mina.MAINNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -540,8 +516,6 @@ def test_sign_tx_12586_3(test_name, backend, firmware, navigator):
                    4294967295,
                    "",
                    mina.MAINNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -573,8 +547,6 @@ def test_sign_tx_12586_4(test_name, backend, firmware, navigator):
                    4294967295,
                    "01234567890123456789012345678901",
                    mina.MAINNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -606,8 +578,6 @@ def test_sign_tx_3_1(test_name, backend, firmware, navigator):
                    1982,
                    "",
                    mina.MAINNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -639,8 +609,6 @@ def test_sign_tx_0_3(test_name, backend, firmware, navigator):
                    1337,
                    "Delewho?",
                    mina.MAINNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -672,8 +640,6 @@ def test_sign_tx_49370_1(test_name, backend, firmware, navigator):
                    4294967295,
                    "",
                    mina.MAINNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -705,8 +671,6 @@ def test_sign_tx_12586_5(test_name, backend, firmware, navigator):
                    4294967295,
                    "more delegates, more fun........",
                    mina.MAINNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -738,8 +702,6 @@ def test_sign_tx_2_1(test_name, backend, firmware, navigator):
                    577216,
                    "",
                    mina.MAINNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, test_name, instructions)
 
     response: bytes=backend.last_async_response.data.hex()
@@ -771,8 +733,6 @@ def test_sign_tx_0_4(test_name, backend, firmware, navigator):
                    271828,
                    "Hello Mina!",
                    mina.MAINNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, name, instructions)
 
     response_main: bytes=backend.last_async_response.data.hex()
@@ -797,8 +757,6 @@ def test_sign_tx_0_4(test_name, backend, firmware, navigator):
                    271828,
                    "Hello Mina!",
                    mina.TESTNET_ID):
-        if firmware.device.startswith("nano"):
-            backend.wait_for_text_on_screen("Sign");
         navigator.navigate_and_compare(TESTS_ROOT_DIR, name, instructions)
 
     response_test: bytes=backend.last_async_response.data.hex()

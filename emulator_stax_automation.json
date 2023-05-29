@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "rules": [
+        {
+            "regexp": "Tap to continue|Path",
+            "actions": [
+                ["finger", 55, 550, true],
+                ["finger", 55, 550, false]
+            ]
+        },
+        {
+            "regexp": "Approve",
+            "actions": [
+                ["finger", 55, 550, true]
+            ]
+        },
+        {
+            "regexp": "SIGNED",
+            "actions": [
+                ["finger", 55, 550, false]
+            ]
+        }
+    ]
+}
